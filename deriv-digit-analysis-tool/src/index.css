@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+
+body {
+  font-family: 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
+  background-color: #f1f5f9;
+  transition: background-color .2s ease;
+}
+html.dark body { background-color: #020617; }
+
+.tick-flash { animation: tickflash .35s ease-out; }
+@keyframes tickflash { from { opacity: .35; } to { opacity: 1; } }
+
+::selection { background: #4f46e5; color: #fff; }
+
+/* subtle scrollbar in both themes */
+* { scrollbar-color: #94a3b8 transparent; scrollbar-width: thin; }
+html.dark * { scrollbar-color: #475569 transparent; }
